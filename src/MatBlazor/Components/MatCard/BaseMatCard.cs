@@ -11,24 +11,25 @@ namespace MatBlazor
         {
             ClassMapper
                 .Add("mdc-card")
-                .If("mdc-card--stroked", () => this.Stroke);
+                .If("mdc-card--outlined", () => Outlined);
         }
 
         [Parameter]
-        protected bool Stroke
-        {
-            get => _stroke;
-            set
-            {
-                _stroke = value;
-                ClassMapper.MakeDirty();
-            }
-        }
+        public bool Outlined { get; set; }
+
+        [Parameter]
+        public bool PrimaryAction { get; set; }
 
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 
+        [Parameter]
+        protected RenderFragment ActionButtons { get; set; }
 
-        private bool _stroke;
+        [Parameter]
+        protected RenderFragment ActionIcons { get; set; }
+
+        [Parameter]
+        public EventCallback<UIMouseEventArgs> PrimaryActionOnClick { get; set; }
     }
 }

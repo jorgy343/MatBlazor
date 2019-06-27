@@ -2,5 +2,33 @@
 @inherits BaseMatCard
 
 <div class="@ClassMapper.Class" style="@Style" @ref="Ref">
-    @ChildContent
+    @if (PrimaryAction)
+    {
+        <div class="mdc-card__primary-action" tabindex="0" onclick="@PrimaryActionOnClick">
+            @ChildContent
+        </div>
+    }
+    else
+    {
+        @ChildContent
+    }
+
+    @if (ActionButtons != null || ActionIcons != null)
+    {
+        <div class="mdc-card__actions">
+            @if (ActionButtons != null)
+            {
+                <div class="mdc-card__action-buttons">
+                    @ActionButtons
+                </div>
+            }
+
+            @if (ActionIcons != null)
+            {
+                <div class="mdc-card__action-icons">
+                    @ActionIcons
+                </div>
+            }
+        </div>
+    }
 </div>
