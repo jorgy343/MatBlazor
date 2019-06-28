@@ -1,5 +1,5 @@
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using System.Threading.Tasks;
 
 namespace MatBlazor
 {
@@ -11,7 +11,7 @@ namespace MatBlazor
         public ElementRef InputRef { get; set; }
 
         [Parameter]
-        public string Value
+        public virtual string Value
         {
             get => _value;
             set
@@ -19,8 +19,12 @@ namespace MatBlazor
                 if (value != _value)
                 {
                     _value = value;
+
                     LabelClassMapper.MakeDirty();
                     InputClassMapper.MakeDirty();
+
+                    OnValueChanged();
+
                     ValueChanged.InvokeAsync(value);
                 }
             }
@@ -169,6 +173,11 @@ namespace MatBlazor
         {
             await base.OnFirstAfterRenderAsync();
             await Js.InvokeAsync<object>("matBlazor.matTextField.init", Ref);
+        }
+
+        protected virtual void OnValueChanged()
+        {
+
         }
     }
 }
