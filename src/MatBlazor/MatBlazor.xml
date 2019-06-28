@@ -216,6 +216,17 @@
             The navigation drawer slides in from the left and contains the navigation destinations for your app.
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatElevation">
+            <summary>
+            Cards contain content and actions about a single subject.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatElevation.Elevation">
+            <summary>
+            Defines the level of elevation. The higher the number the higher the element will appear. This must
+            be a value between 0 and 24 inclusive. Any other value will act as being 0.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatFAB">
             <summary>
             A floating action button represents the primary action in an application.
@@ -283,7 +294,12 @@
         </member>
         <member name="T:MatBlazor.BaseMatListItem">
             <summary>
-            Lists present multiple line items vertically as a single continuous element. 
+            Lists present multiple line items vertically as a single continuous element.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatListItem.Href">
+            <summary>
+            The URL of the List Item
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatListItem.Disabled">
