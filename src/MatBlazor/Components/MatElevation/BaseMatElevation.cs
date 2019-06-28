@@ -12,12 +12,12 @@ namespace MatBlazor
         public BaseMatElevation()
         {
             ClassMapper
-                .Add($"mdc-elevation-{Elevation}");
+                .Get(() => $"mdc-elevation--z{Elevation}");
         }
 
         /// <summary>
         /// Defines the level of elevation. The higher the number the higher the element will appear. This must
-        /// be a value between 1 and 24 inclusive.
+        /// be a value between 0 and 24 inclusive. Any other value will act as being 0.
         /// </summary>
         [Parameter]
         protected int Elevation

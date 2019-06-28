@@ -1,0 +1,35 @@
+<h5 class="mat-h5">Example</h5>
+<DemoContainer>
+    <Content>
+        <MatElevation Elevation="@ElevationInt">
+            <p>
+                MatElevation
+            </p>
+        </MatElevation>
+
+        <p><MatSlider ValueMin="0" ValueMax="24" @bind-Value="@ElevationDecimal" /></p>
+
+        @functions
+        {
+            private decimal ElevationDecimal { get; set; } = 8m;
+            private int ElevationInt => (int)ElevationDecimal;
+        }
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatElevation Elevation=""@ElevationInt"">
+            <p>
+                MatElevation
+            </p>
+        </MatElevation>
+
+        <p><MatSlider ValueMin=""0"" ValueMax=""24"" @bind-Value=""@ElevationDecimal"" /></p>
+
+        @functions
+        {
+            private decimal ElevationDecimal { get; set; } = 8m;
+            private int ElevationInt => (int)ElevationDecimal;
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
