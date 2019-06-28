@@ -1,16 +1,44 @@
+@inject IJSRuntime JsRuntime
+
 <DocMatCard></DocMatCard>
 
 <h5 class="mat-h5">Example</h5>
 
 <DemoContainer>
     <Content>
-        <MatCard>
-            <h1>Header</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+        <MatCard Outlined="@Outlined" PrimaryAction="true" PrimaryActionOnClick="@PrimaryAction">
+            <ChildContent>
+                <h1>Primary Action Area</h1>
+                <p>
+                    This is the primary action area which is clickable.
+                </p>
+            </ChildContent>
+
+            <ActionButtons>
+                <MatCardButton>Save</MatCardButton>
+                <MatCardButton>Cancel</MatCardButton>
+            </ActionButtons>
+
+            <ActionIcons>
+                <MatCardIconButton Icon="favorite" />
+                <MatCardIconButton Icon="more_vert" />
+            </ActionIcons>
         </MatCard>
+
+        <p><MatSlideToggle @bind-Checked="@Outlined" Label="Outlined" /></p>
+
+        @functions
+        {
+            private bool Outlined { get; set; }
+
+            private void PrimaryAction()
+            {
+                JsRuntime.InvokeAsync<object>("window.alert", "Primary Action");
+            }
+        }
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatCard>
             <h1>Header</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
