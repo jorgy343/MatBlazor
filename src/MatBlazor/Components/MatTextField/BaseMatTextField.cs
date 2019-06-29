@@ -23,9 +23,9 @@ namespace MatBlazor
                     LabelClassMapper.MakeDirty();
                     InputClassMapper.MakeDirty();
 
-                    OnValueChanged();
-
                     ValueChanged.InvokeAsync(value);
+
+                    OnValueChanged();
                 }
             }
         }
